@@ -4,6 +4,17 @@ process.env.PORT = process.env.PORT || 3000;
 //Entorno
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
+// ================================
+// Vencimiento token
+// ================================
+process.env.CADUCIDAD_TOKEN = 60*60;
+
+// ================================
+// SEED de autenticacion
+// ================================
+// crear en heroku el seed para que no se muestre
+process.env.SEED = process.env.SEED || 'secret-seed';
+
 //base de datos
 
 let urlDB;
