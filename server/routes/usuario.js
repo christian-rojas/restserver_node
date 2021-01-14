@@ -3,8 +3,15 @@ const app = express();
 const Usuario = require('../models/usuario');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
+//solo extraigo esta parte de la libreria
+const { verificarToken, verificarAdmin } = require('../middlewares/autenticacion'); 
 
-app.get('/usuario', function(req, res){
+app.get('/usuario', verificarToken, (req, res) => {
+
+    /*return res.json({
+        usuario: req.usuario,
+        nombre: req.usuario.nombre
+    })*/
 
     //el usuario requiere la cantidad
     let desde = req.query.desde || 0;
@@ -39,7 +46,7 @@ app.get('/usuario', function(req, res){
     //res.send('get');
 });
 
-app.post('/usuario', function(req, res){
+app.post('/usuario', [verificarToken, verificarAdmin], (req, res) =>{
     //nombre del objeto json -> puede ser persona
     let body = req.body;
 
@@ -69,7 +76,7 @@ app.post('/usuario', function(req, res){
 
 });
 
-app.put('/usuario/:id', function(req, res){
+app.put('/usuario/:id', [verificarToken, verificarAdmin], (req, res) =>{
 
     //el id hace match con lo de arriba
     let id = req.params.id;
@@ -97,7 +104,7 @@ app.put('/usuario/:id', function(req, res){
 
 });
 
-app.delete('/usuario/:id', function(req, res){
+app.delete('/usuario/:id', [verificarToken, verificarAdmin], (req, res) =>{
 
     let id = req.params.id;
 
