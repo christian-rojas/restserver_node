@@ -1,0 +1,31 @@
+npm i --save-dev solo local no global
+
+git add .
+git commit -m ""
+git commi -am "" -> agrega o reemplaza el git add . 
+git remote add origin https://github.com/christian-rojas/curso_node.git
+git push -u origin master
+
+//LAS RELEASES
+git tag -a v1.0.0 -m "primera version"
+git push --tags
+
+--save hace que se incluyan dentro del proyecto
+
+axios promesas, http callbacks
+
+npm update actualiza packetes
+
+heroku login y heroku create -> asigna nombre x defecto
+git push heroku master
+
+y ademas modificar el main
+ "scripts": {
+    "start": "node server/server.js", ->siempre al desplegar
+
+heroku config:set var=""
+heroku config:unset var
+heroku config:set MONGO_URL="mongodb+srv://cook:meister10@cluster0.cjvht.mongodb.net/restserver"
+
+ID: 12241263213-943fd2kuv02d2ng9sk0mrc6vt9k6krd5.apps.googleusercontent.com
+clave: u8zGfUqQml35SBCcRRgIM1Kv
